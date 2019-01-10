@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'erb'
+require 'json'
 
 get "/ping" do
-  erb :index
+  content_type :json
+  data = { "result": "pong" }
+  data.to_json
 end
